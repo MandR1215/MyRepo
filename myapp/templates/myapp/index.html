@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>My App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <style type="text/css">
+      h1 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      p.h4 {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .download-button {
+         display: inline-block;
+         text-align: center;
+         width: 100%;
+      }
+      .download-button a {
+        text-align: center;
+        margin: 10px auto;
+        border: 1px solid lightskyblue;
+        padding: 10px;
+        text-decoration: none;
+        color: lightskyblue
+      }
+      .download-button a:hover {
+        background-color: steelblue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="display-3 text-primary">Workschool</h1>
+        {% if download %}
+          <p class="h4 text-secondary">ファイルをダウンロードする</p>
+          <div class="download-button">
+            <a href="{% url 'download' %}">
+              download
+            </a>
+          </div>
+        {% else %}
+          <p class="h4 text-secondary">ファイルをアップロードする</p>
+          <form action="{% url 'index' %}" method="post" enctype="multipart/form-data" style="text-align: center">
+            {% csrf_token %}
+            {{ uploadForm }}
+            <input type="submit" value="upload">
+          </form>
+        {% endif %}
+  </body>
+</html>
