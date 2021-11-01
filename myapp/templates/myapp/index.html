@@ -45,7 +45,7 @@
           <p class="h4 text-secondary">ファイルをアップロードする</p>
           <form action="{% url 'index' %}" method="post" enctype="multipart/form-data" style="text-align: center">
             {% csrf_token %}
-            {{ uploadForm }}
+            {{ uploadForm.as_p }}
             <input type="submit" value="upload">
           </form>
         {% endif %}
