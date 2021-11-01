@@ -19,7 +19,7 @@ def index(request):
     return render(request, 'myapp/index.html', params)
 
 def download(request):
-    filename, filepath = 'out.csv', '/home/IriesSeis/iriesseis.pythonanywhere.com/myapp/pkl_files'
+    filename, filepath = 'out.csv', '/home/IriesSeis/iriesseis.pythonanywhere.com/myapp/pkl_files/out.csv'
     return FileResponse(open(filepath, "rb"), as_attachment=True, filename=filename)
 
     # path = os.path.abspath('./myapp/pkl_files')
