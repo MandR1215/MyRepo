@@ -11,7 +11,7 @@ def process(csv):
     df = pd.read_csv(csv)
 
     # pickles
-    path = os.path.abspath('./myapp/pkl_files')
+    path = '/home/IriesSeis/iriesseis.pythonanywhere.com/myapp/pkl_files'
     with open(path+'/subset1.pkl', 'rb') as f:
          subset1 = pickle.load(f)
     with open(path+'/subset2.pkl', 'rb') as f:
